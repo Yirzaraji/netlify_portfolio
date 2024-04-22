@@ -16,9 +16,7 @@ function Header() {
             <span className="text-warning">{"/>"}</span>
           </p>
           <p>
-            <span>Remi Larrauri</span>
-            <br />
-            <span>06.29.61.53.66</span>
+            <span>Remi Delarue</span>
           </p>
           <button className="btn mt-3 mb-5 cv_icon">
             <a href="cv">

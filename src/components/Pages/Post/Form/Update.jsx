@@ -4,6 +4,7 @@ import axios from "axios";
 import Submit from "./Submit";
 
 function Update() {
+  let API_URL = process.env.REACT_APP_URL;
   //redirection hook
   const navigate = useNavigate();
   //Catch :id param from url
@@ -25,9 +26,7 @@ function Update() {
   useEffect(() => {
     const fetchData = async () => {
       try {
-        const response = await axios.get(
-          `http://localhost:8080/api/post/${id}`
-        );
+        const response = await axios.get(API_URL + `/api/post/${id}`);
         setFormData(response.data);
       } catch (error) {
         console.error(error);
@@ -66,7 +65,7 @@ function Update() {
     event.preventDefault();
     try {
       const response = await axios.patch(
-        `http://localhost:8080/api/post/update/${id}`,
+        API_URL + `/api/post/update/${id}`,
         formData
       );
       console.log(response);

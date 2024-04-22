@@ -4,6 +4,8 @@ import Submit from "./Submit";
 import { useNavigate } from "react-router-dom";
 
 function Create() {
+  let API_URL = process.env.REACT_APP_URL;
+
   //redirection hook
   const navigate = useNavigate();
   //state
@@ -48,10 +50,7 @@ function Create() {
   const handleSubmit = async (event) => {
     event.preventDefault();
     try {
-      const response = await axios.post(
-        "http://localhost:8080/api/post/create",
-        formData
-      );
+      const response = await axios.post(API_URL + "/api/post/create", formData);
       console.log(response);
       navigate("/administration");
     } catch (error) {

@@ -10,10 +10,11 @@ const Cards = () => {
   const [posts, setPosts] = useState([]);
   const [alteredPosts, setAlteredPosts] = useState([]);
   const spanref = useRef();
-
   const fetchPosts = async () => {
     try {
-      const response = await axios.get(`https://yira.alwaysdata.net/api/posts`);
+      const response = await axios.get(
+        process.env.REACT_APP_URL + `/api/posts`
+      );
       setAlteredPosts(response.data);
       setPosts(response.data);
     } catch (error) {
